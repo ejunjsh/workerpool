@@ -28,10 +28,10 @@ func main(){
 
 ````
 
-## test
+## benchmark
 ````bash
-go test -bench .
-BenchmarkNopool-8                      1        7966900091 ns/op
-BenchmarkGopool-8                      1        7949844269 ns/op
-BenchmarkWorkerPool-8                  1        7997732135 ns/op
+$ go test -bench .
+BenchmarkWorkerPool-8                  1        8170956922 ns/op
+BenchmarkNopool-8                      1        8400776011 ns/op
+BenchmarkGopool-8                      1        8129090755 ns/op
 ````

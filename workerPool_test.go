@@ -3,7 +3,6 @@ package workerpool
 import (
 	"testing"
 	"sync"
-	"fmt"
 )
 
 func workerpool() {
@@ -80,20 +79,4 @@ func BenchmarkGopool(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		gopool()
 	}
-}
-
-func TestNewWorkerPool(t *testing.T) {
-	wg := new(sync.WaitGroup)
-	wp:=NewWorkerPool(4,100)
-	for i := 0; i < 10; i++ {
-		wg.Add(1)
-		wp.Execute(func() {
-			fmt.Println(1)
-			wg.Done()
-		})
-
-	}
-	wp.Start()
-	wg.Wait()
-	wp.Stop()
 }
